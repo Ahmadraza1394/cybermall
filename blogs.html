@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberMall Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Hero Section -->
+
+    <!-- Logo Container -->
+    <div class="flex justify-center my-6">
+      <a href="index.html">
+        <img
+          src="/images/logo.jpeg"
+          alt="CyberMall Logo"
+          class="w-24 h-24 rounded-full shadow-xl"
+        />
+      </a>
+    </div>
+
+    <!-- Oval Tagline -->
+
+    <!-- Main About Description -->
+    <div class="max-w-4xl mx-auto mb-14 text-center mt-8">
+      <h1 class="text-4xl font-extrabold mb-6" style="color: var(--text-color)">
+        Blogs CyberMall
+      </h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 flex flex-col lg:flex-row lg:space-x-6">
+      <!-- Main Blog Display Section -->
+      <section id="mainBlogDisplay" class="lg:w-3/4 mb-8 lg:mb-0">
+        <div
+          class="bg-white leading-loose text-justify sm:text-3xl rounded-lg shadow-lg p-8"
+          id="mainBlogContent"
+        >
+          <!-- Main Blog Content will be inserted here dynamically -->
+        </div>
+      </section>
+
+      <!-- Sidebar: Other Blogs -->
+      <aside class="lg:w-1/4 bg-white p-4 rounded-lg shadow-lg">
+        <h2 class="text-xl font-semibold mb-4">Other Blogs</h2>
+        <div id="sidebarBlogs" class="space-y-6">
+          <!-- Sidebar Blog Links will be dynamically inserted here -->
+        </div>
+      </aside>
+    </main>
+
+    <footer class="text-center py-4 mt-8 bg-gray-800 text-white">
+      <p>&copy; 2024 CyberMall. All rights reserved.</p>
+    </footer>
+
+    <script src="blogs.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/* Light Mode (Default) */
+:root {
+  --bg-color: #f5f7f8;
+  --header-bg-color: #ffffff;
+  --text-color: #6f7272;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  /* --button-bg-color: #ffcc00; */
+  --button-text-color: #000000;
+  --input-bg-color: #f0f0f0;
+  --sidebar-bg-color: #333333;
+  --sidebar-text-color: #e4e4e4;
+
+  --sidebar-hover-color: #0073e6;
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg-color: #000000;
+  --header-bg-color: #1e1e1e;
+  --text-color: #e4e4e4;
+  --overlay-color: rgba(255, 255, 255, 0.1);
+
+  --button-text-color: #e4e4e4;
+  --input-bg-color: #e4e4e4;
+  --input-text-color: var(--sidebar-bg-color);
+  --sidebar-bg-color: #1e1e1e;
+  --sidebar-hover-color: #4aa0e6;
+  --sidebar-text-color: #e4e4e4;
+}
+
+/* Apply Variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+p {
+  color: var(--text-color);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+}
+header {
+  background-color: var(--header-bg-color);
+}
+
+input,
+select {
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+.brand-card .overlay {
+  background-color: var(--overlay-color);
+}
+
+/* Apply Variables */
+#sidebar {
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-text-color);
+}
+
+#sidebar a {
+  color: var(--sidebar-text-color);
+}
+
+#sidebar a:hover {
+  color: var(--sidebar-hover-color);
+}

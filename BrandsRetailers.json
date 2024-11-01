@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "name": "Nike",
+    "link": "http://nike.com",
+    "img": "./images/nike.jpeg",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 2,
+    "name": "Amazon.com",
+    "link": "http://Amazon.com",
+    "img": "./images/amazon.png",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 3,
+    "name": "Tj Maxx",
+    "link": "http://tjmaxx.com",
+    "img": "./images/tjmaxx.png",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 4,
+    "name": "Ross",
+    "link": "http://Ross.com",
+    "img": "./images/abott.svg",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 5,
+    "name": "Walmart",
+    "link": "http://Walmart.com",
+    "img": "./images/walmart.svg",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 6,
+    "name": "Target",
+    "link": "http://Target.com",
+    "img": "./images/bullseyered.svg",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 7,
+    "name": "BestBuy",
+    "link": "http://BestBuy.com",
+    "img": "./images/bestbuy.svg",
+    "category": "Tech Products"
+  },
+  {
+    "id": 8,
+    "name": "Old Navy",
+    "link": "http://Oldnavy.com",
+    "img": "./images/oldnavy.svg",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 9,
+    "name": "Puma",
+    "link": "http://Puma.com",
+    "img": "./images/puma.png",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 10,
+    "name": "Tesla",
+    "link": "http://Tesla.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Vehicals Land"
+  },
+  {
+    "id": 11,
+    "name": "TMC",
+    "link": "http://Themarathonclothing.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 12,
+    "name": "Big 5",
+    "link": "http://Big5.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 13,
+    "name": "Dicks",
+    "link": "http://dickssportinggoods.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 14,
+    "name": "Supreme",
+    "link": "http://supremenyc.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 15,
+    "name": "RoundTwo",
+    "link": "http://RoundTwo.us",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 16,
+    "name": "Flight Club",
+    "link": "http://FlightCLub.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 17,
+    "name": "Stance",
+    "link": "http://Stance.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 18,
+    "name": "New Era",
+    "link": "http://neweracap.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 19,
+    "name": "Lids",
+    "link": "http://Lids.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 20,
+    "name": "Hat Club",
+    "link": "http://Hatclub.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 21,
+    "name": "Tillys",
+    "link": "http://tillys.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 22,
+    "name": "Zumiez",
+    "link": "http://zumiez.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 23,
+    "name": "True Religion",
+    "link": "http://truereligion.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  },
+  {
+    "id": 24,
+    "name": "Adidas",
+    "link": "http://adidas.com",
+    "img": "./images/Tesla.jfif",
+    "category": "Brands & Retailers"
+  }
+]

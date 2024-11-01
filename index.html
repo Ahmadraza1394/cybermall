@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar with Sidebar Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="scroll-behavior: smooth">
+    <header
+      class="flex items-center justify-between fixed top-0 w-full z-50 p-4 shadow-lg"
+      style="background-color: var(--header-bg-color)"
+    >
+      <!-- Logo -->
+      <div class="items-center hidden sm:block md:ml-4">
+        <a href="#">
+          <img src="/images/logo.jpeg" alt="Logo" class="w-16 h-16" />
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div id="filter-container" class="relative flex items-center md:w-full max-w-2xl mx-auto">
+        <!-- Category Filter Dropdown -->
+        <select id="categorySelect" class="p-2 border w-4 sm:w-16 rounded-l-md focus:outline-none" style="background-color: var(--input-bg-color); color: var(--input-text-color);">
+          <option value="all">All </option>
+          <option value="Brands & Retailers">Brands & Retailers</option>
+          <option value="Tech Products">Tech Products</option>
+          <option value="Vehicals Land">Vehicles Land</option>
+          <!-- Add more categories as needed -->
+        </select>
+      
+        <!-- Search Input -->
+        <input id="searchInput" type="text" style="color: var(--input-text-color);" placeholder="Search Brands" class="flex-grow p-2 border-t border-b outline-none focus:outline-none" />
+      
+        <!-- Filter Button -->
+        <button class="p-2 rounded-r-md bg-red-600 focus:outline-none">
+          <span class="font-semibold text-white">Filter</span>
+        </button>
+      </div>
+      
+  
+
+      <!-- Dark Mode Toggle Button -->
+      <button id="themeToggle" class="ml-4 p-2 rounded focus:outline-none">
+        <span id="themeIcon" class="fas fa-moon"></span>
+      </button>
+
+      <!-- Hamburger Menu Icon -->
+      <div class="flex items-center md:mr-10">
+        <button id="hamburger" class="focus:outline-none">
+          <svg
+            id="menuIcon"
+            class="w-10 h-10"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!----------------------PROFILE MODEL ----------------- -->
+
+    <!-- Sidebar Menu (Right-Aligned) -->
+    <div
+      id="sidebar"
+      class="fixed top-0 right-0 z-50 hidden w-64 h-full transform translate-x-full duration-75 ease-out transition-transform"
+      style="
+        background-color: var(--sidebar-bg-color);
+        color: var(--sidebar-text-color);
+      "
+    >
+      <!-- Close Icon in Sidebar -->
+      <button
+        id="closeSidebar"
+        class="absolute top-4 right-8 focus:outline-none"
+        style="color: var(--sidebar-text-color)"
+      >
+        <svg
+          class="w-10 h-10"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Sidebar Links -->
+      <div class="flex flex-col items-start p-6 space-y-4 mt-10">
+        <a
+          id="profileLink"
+          class="text-lg hover:text-blue-400 cursor-pointer"
+          style="color: var(--sidebar-text-color)"
+        >
+          <i class="fa fa-x fa-user"></i><span class="ml-2">Account</span>
+        </a>
+
+        <!-- Displayed User Profile Information After Sign-In -->
+        <div id="userInfo" class="hidden">
+          <p id="userName" class="text-lg">Name:</p>
+          <p id="userEmail" class="text-lg">Email:</p>
+          <p id="userPhone" class="text-lg">Phone #:</p>
+          <p id="userAddress" class="text-lg">Address:</p>
+          <button
+            id="settingsButton"
+            class="p-2 mt-4 rounded bg-gray-500 text-white"
+          >
+            Settings
+          </button>
+
+          <button
+            id="signOutButton"
+            class="mt-4 p-2 rounded bg-gray-500 text-white"
+          >
+            Sign Out
+          </button>
+        </div>
+
+        <a
+          href="about.html""
+          class="text-lg hover:text-blue-400 cursor-pointer"
+          style="color: var(--sidebar-text-color)"
+          >About</a
+        >
+
+        <a
+          href="blogs.html"
+          class="text-lg hover:text-blue-400"
+          style="color: var(--sidebar-text-color)"
+          >Blog</a
+        >
+        <a
+          href=""
+          class="text-lg hover:text-blue-400"
+          style="color: var(--sidebar-text-color)"
+          >Data</a
+        >
+        <a
+          id="contact"
+          class="text-lg hover:text-blue-400 cursor-pointer"
+          style="color: var(--sidebar-text-color)"
+          >Contact Us</a
+        >
+
+        <p class="text-center">2024 CyberMall ©️</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="p-4">
+      <section class="mt-24">
+        <!-- <div id="card-container" class="grid grid-cols-4 gap-4"></div> -->
+        <div id="card-container" class="flex flex-col items-center">
+          <!-- Cards will be dynamically inserted here -->
+        </div>
+
+        <!-------------------SIGNUP AND LOGIN  ----------------  -->
+       <!-- Sign-In Modal with Customer or Business Option -->
+<div id="authModal" class="fixed inset-0 flex items-center justify-center hidden z-50">
+    <div id="signInForm" class="p-8 rounded-lg shadow-lg w-80 relative" style="background-color: var(--header-bg-color); color: var(--text-color);">
+      <button id="closeSignIn" class="absolute w-6 h-6 top-2 right-2 focus:outline-none" style="color: var(--text-color)">&times;</button>
+      <h3 class="text-lg font-semibold mb-4">Sign In</h3>
+  
+      <!-- Account Type Selection -->
+      <label class="block mb-2">Sign in as:</label>
+      <select id="accountType" class="p-2 border rounded-md mb-4 w-full" style="background-color: var(--input-bg-color); color: var(--input-text-color);">
+        <option value="customer">Customer</option>
+        <option value="business">Business</option>
+      </select>
+  
+      <!-- Sign-In Form Inputs -->
+      <form id="loginForm" class="flex flex-col space-y-4">
+        <input type="email" id="loginEmail" placeholder="Email" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" required />
+        <input type="password" id="loginPassword" placeholder="Password" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" required />
+        <button type="button" id="signInButton" class="p-2 rounded bg-blue-500 text-white">Sign In</button>
+      </form>
+      <p class="text-sm mt-2">Don't have an account? <a href="#" id="switchToSignUp" class="text-blue-400">Sign Up</a></p>
+    </div>
+ 
+  
+
+  
+    <!-- Sign-Up Form Card -->
+    <div id="signUpForm" class="p-8 rounded-lg shadow-lg hidden w-80 relative" style="background-color: var(--header-bg-color); color: var(--text-color);">
+      <button id="closeSignUp" class="absolute top-2 right-2 focus:outline-none" style="color: var(--text-color)">&times;</button>
+      <h3 class="text-lg font-semibold mb-4">Sign Up</h3>
+  
+      <!-- Account Type Selection -->
+      <label class="block mb-2">Sign up as:</label>
+      <select id="signUpAccountType" class="p-2 border rounded-md mb-4 w-full" style="background-color: var(--input-bg-color); color: var(--input-text-color);">
+        <option value="customer">Customer</option>
+        <option value="business">Business</option>
+      </select>
+  
+      <!-- Sign-Up Form Inputs -->
+      <form id="registerForm" class="flex flex-col space-y-4">
+        <input type="text" id="registerName" placeholder="Name" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--text-color);" required />
+        <input type="email" id="registerEmail" placeholder="Email" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--text-color);" required />
+        <input type="tel" id="registerPhone" placeholder="Phone #" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--text-color);" required />
+        <input type="text" id="registerAddress" placeholder="Address" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--text-color);" required />
+        <input type="password" id="registerPassword" placeholder="Password" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--text-color);" required />
+        <button type="button" id="signUpButton" class="p-2 rounded bg-green-500 text-white">Sign Up</button>
+      </form>
+      <p class="text-sm mt-2">Already have an account? <a href="#" id="switchToSignIn" class="text-blue-400">Sign In</a></p>
+    </div>
+ 
+  
+        </div>
+        <!-- ---------------------EDIT FORM------------ -->
+    <!-- Settings Form Modal -->
+<div
+id="settingsForm"
+class="p-8 rounded-lg shadow-lg hidden w-80 fixed inset-0 flex items-center justify-center z-50"
+style="background-color: var(--header-bg-color); color: var(--text-color);"
+>
+<div class="relative w-full">
+  <button id="closeSettings" class="absolute top-2 right-2 focus:outline-none" style="color: var(--text-color)">&times;</button>
+  <h3 class="text-lg font-semibold mb-4 text-center">Update Profile</h3>
+  <form class="flex flex-col space-y-4">
+    <input type="text" id="updateName" placeholder="Name" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" />
+    <input type="email" id="updateEmail" placeholder="Email" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" />
+    <input type="tel" id="updatePhone" placeholder="Phone #" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" />
+    <input type="text" id="updateAddress" placeholder="Address" class="p-2 border rounded-md" style="background-color: var(--input-bg-color); color: var(--input-text-color);" />
+    <button type="button" id="saveSettingsButton" class="p-2 rounded bg-blue-500 text-white hover:bg-blue-600 transition">Save Changes</button>
+  </form>
+</div>
+</div>
+
+      </section>
+         <!---------------------CONTACT US PAGE------------  -->
+         <div
+         id="contactModal"
+         class="fixed inset-0 flex items-center justify-center hidden z-50"
+         style="background-color: var(--overlay-color)"
+       >
+         <div
+           class="p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl relative mx-4 sm:mx-0"
+           style="background-color: var(--header-bg-color); color: var(--text-color)"
+         >
+           <!-- Close Button -->
+           <button
+             id="closeContactModal"
+             class="absolute top-2 right-2"
+             style="color: var(--text-color);"
+           >
+             &times;
+           </button>
+       
+           <!-- Contact Form -->
+           <h3 class="text-2xl font-semibold mb-4 text-center">Contact Us</h3>
+           <form id="contactForm" class="flex flex-col space-y-4">
+             <input
+               type="text"
+               id="contactName"
+               placeholder="Your Name"
+               class="p-2 border rounded-md focus:outline-none"
+               style="background-color: var(--input-bg-color); color: var(--input-text-color); border-color: var(--text-color)"
+               required
+             />
+             <input
+               type="email"
+               id="contactEmail"
+               placeholder="Your Email"
+               class="p-2 border rounded-md focus:outline-none"
+               style="background-color: var(--input-bg-color); color: var(--input-text-color); border-color: var(--text-color)"
+               required
+             />
+             <textarea
+               id="contactMessage"
+               
+               placeholder="Your Message"
+               class="p-2 border rounded-md focus:outline-none resize-none"
+               rows="4"
+               style="background-color: var(--input-bg-color); color: var(--input-text-color); border-color: var(--text-color)"
+               required
+             ></textarea>
+             <button
+               type="button"
+               id="sendMessageButton"
+               class="p-2 rounded transition duration-200 text-white bg-gray-500"
+               
+             >
+               Send Message
+             </button>
+           </form>
+         </div>
+       </div>
+       
+    </main>
+
+    <!-- JavaScript for Sidebar and Dark Mode Toggle -->
+    <script>
+
+
+      // Sidebar toggle
+      const hamburger = document.getElementById("hamburger");
+      const sidebar = document.getElementById("sidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+
+      hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("translate-x-full");
+        sidebar.classList.toggle("hidden");
+      });
+
+      closeSidebar.addEventListener("click", () => {
+        sidebar.classList.add("translate-x-full");
+        sidebar.classList.add("hidden");
+      });
+
+      
+  // Existing sidebar, theme toggle, and scroll logic
+
+  // Account type selection
+  const accountTypeSelect = document.getElementById("accountType");
+
+  // Temporary Data Storage for Customer and Business
+  let userData = JSON.parse(localStorage.getItem("userData")) || {};
+  let businessData = JSON.parse(localStorage.getItem("businessData")) || {};
+
+  // Populate user profile if signed in (Customer)
+  if (userData.name) {
+    displayUserInfo(userData);
+  }
+
+  // Open sign-in modal when clicking profile
+  document.getElementById("profileLink").addEventListener("click", () => {
+    openModal(signInForm);
+  });
+
+  // Close sign-in modal
+  closeSignIn.addEventListener("click", closeModal);
+
+ 
+  // Sign-Up and Sign-In Modal Logic
+  const authModal = document.getElementById("authModal");
+  const signInForm = document.getElementById("signInForm");
+  const signUpForm = document.getElementById("signUpForm");
+  const closeSignUp = document.getElementById("closeSignUp");
+  const switchToSignIn = document.getElementById("switchToSignIn");
+  const switchToSignUp = document.getElementById("switchToSignUp");
+
+  // Open sign-up modal when switching from sign-in
+  switchToSignUp.addEventListener("click", (e) => {
+    e.preventDefault();
+    signInForm.classList.add("hidden");
+    signUpForm.classList.remove("hidden");
+    authModal.classList.remove("hidden");
+  });
+
+  // Close modal on close button click
+  closeSignUp.addEventListener("click", () => closeModal());
+
+  // Open modal with specific form
+  function openModal(form) {
+    authModal.classList.remove("hidden");
+    form.classList.remove("hidden");
+  }
+
+  // Close all modals
+  function closeModal() {
+    authModal.classList.add("hidden");
+    signInForm.classList.add("hidden");
+    signUpForm.classList.add("hidden");
+  }
+
+  // Sign-Up Button Logic
+  document.getElementById("signUpButton").addEventListener("click", () => {
+    const accountType = document.getElementById("signUpAccountType").value;
+    const name = document.getElementById("registerName").value;
+    const email = document.getElementById("registerEmail").value;
+    const phone = document.getElementById("registerPhone").value;
+    const address = document.getElementById("registerAddress").value;
+    const password = document.getElementById("registerPassword").value;
+
+    if (name && email && phone && address && password) {
+      const newUser = { name, email, phone, address, password };
+      if (accountType === "customer") {
+        localStorage.setItem("userData", JSON.stringify(newUser));
+        alert("Customer Sign-Up successful! You can now sign in.");
+      } else {
+        localStorage.setItem("businessData", JSON.stringify(newUser));
+        alert("Business Sign-Up successful! You can now sign in.");
+      }
+      // Hide sign-up form, show sign-in form
+      signUpForm.classList.add("hidden");
+      signInForm.classList.remove("hidden");
+    } else {
+      alert("Please fill out all fields.");
+    }
+  });
+
+  // Logic for switching back to sign-in
+  switchToSignIn.addEventListener("click", (e) => {
+    e.preventDefault();
+    signUpForm.classList.add("hidden");
+    signInForm.classList.remove("hidden");
+  });
+  // Sign-In Button Logic
+  document.getElementById("signInButton").addEventListener("click", () => {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    const accountType = accountTypeSelect.value;
+
+    if (accountType === "customer" && email === userData.email && password === userData.password) {
+      displayUserInfo(userData);
+      closeModal();
+    } else if (accountType === "business" && email === businessData.email && password === businessData.password) {
+      displayUserInfo(businessData);
+      closeModal();
+    } else {
+      alert("Invalid email or password. Please try again.");
+    }
+  });
+
+  // Display user or business info
+  function displayUserInfo(data) {
+    document.getElementById("userName").textContent = ` ${data.name}`;
+    document.getElementById("userEmail").textContent = ` ${data.email}`;
+    document.getElementById("userPhone").textContent = ` ${data.phone}`;
+    document.getElementById("userAddress").textContent = ` ${data.address}`;
+    document.getElementById("userInfo").classList.remove("hidden");
+  }
+
+  // Sign-Out Button
+  document.getElementById("signOutButton").addEventListener("click", () => {
+    document.getElementById("userInfo").classList.add("hidden");
+    alert("You have signed out.");
+  });
+
+// -------------------Setting Form----------------
+// Existing JavaScript code...
+
+  // Temporary Storage for User and Business Data (using localStorage)
+//   let userData = JSON.parse(localStorage.getItem("userData")) || {};
+//   let businessData = JSON.parse(localStorage.getItem("businessData")) || {};
+
+  // Determine the current account type when settings are opened
+  let currentAccountType = null;
+
+  // Settings Button Logic
+  const settingsButton = document.getElementById("settingsButton");
+  const settingsForm = document.getElementById("settingsForm");
+  const closeSettings = document.getElementById("closeSettings");
+  const saveSettingsButton = document.getElementById("saveSettingsButton");
+
+  // Open settings form for the currently signed-in account
+  settingsButton.addEventListener("click", () => {
+    if (userData.name) {
+      currentAccountType = "customer";
+      populateSettingsForm(userData);
+    } else if (businessData.name) {
+      currentAccountType = "business";
+      populateSettingsForm(businessData);
+    }
+    settingsForm.classList.remove("hidden");
+  });
+
+  // Populate settings form with current data
+  function populateSettingsForm(data) {
+    document.getElementById("updateName").value = data.name || "";
+    document.getElementById("updateEmail").value = data.email || "";
+    document.getElementById("updatePhone").value = data.phone || "";
+    document.getElementById("updateAddress").value = data.address || "";
+  }
+
+  // Close settings form
+  closeSettings.addEventListener("click", () => {
+    settingsForm.classList.add("hidden");
+  });
+
+  // Save updated data
+  saveSettingsButton.addEventListener("click", () => {
+    const updatedName = document.getElementById("updateName").value || "";
+    const updatedEmail = document.getElementById("updateEmail").value || "";
+    const updatedPhone = document.getElementById("updatePhone").value || "";
+    const updatedAddress = document.getElementById("updateAddress").value || "";
+
+    const updatedData = {
+      name: updatedName,
+      email: updatedEmail,
+      phone: updatedPhone,
+      address: updatedAddress,
+    };
+
+    if (currentAccountType === "customer") {
+      userData = { ...userData, ...updatedData };
+      localStorage.setItem("userData", JSON.stringify(userData));
+      alert("Customer profile updated successfully!");
+      displayUserInfo(userData);
+    } else if (currentAccountType === "business") {
+      businessData = { ...businessData, ...updatedData };
+      localStorage.setItem("businessData", JSON.stringify(businessData));
+      alert("Business profile updated successfully!");
+      displayUserInfo(businessData);
+    }
+
+    settingsForm.classList.add("hidden");
+  });
+
+  // Function to display updated user or business info on the sidebar
+  function displayUserInfo(data) {
+    document.getElementById("userName").textContent = ` ${data.name}`;
+    document.getElementById("userEmail").textContent = ` ${data.email}`;
+    document.getElementById("userPhone").textContent = ` ${data.phone}`;
+    document.getElementById("userAddress").textContent = ` ${data.address}`;
+    document.getElementById("userInfo").classList.remove("hidden");
+  }
+
+  // Open, Close, and Switch Modals
+//   const authModal = document.getElementById("authModal");
+  function closeModal() {
+    authModal.classList.add("hidden");
+    signInForm.classList.add("hidden");
+    signUpForm.classList.add("hidden");
+  }
+  function openModal(form) {
+    authModal.classList.remove("hidden");
+    form.classList.remove("hidden");
+  }
+
+
+
+
+      // Smooth scroll to top when logo is clicked
+      document
+        .querySelector('a[href="#"]')
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+
+
+
+    </script>
+    <script src="index.js"></script>
+    <script src="contactUs.js"></script>
+  </body>
+</html>
